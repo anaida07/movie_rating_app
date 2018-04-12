@@ -4,6 +4,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  width: 100%;
 }
 
 #inspire {
@@ -16,4 +17,12 @@
 
 a.side_bar_link {
   text-decoration: none;
+}
+
+.card__title--primary, .card__text {
+  text-align: left;
+}
+
+.card {
+  height: 100% !important;
 }
