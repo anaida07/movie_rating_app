@@ -14,13 +14,21 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
     "bootstrap": "^4.1.0",
     "bootstrap-vue": "^2.0.0-rc.6",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.14",
+    "morgan": "^1.9.0",
     "node-sass": "^4.8.3",
+    "nodemon": "^1.17.3",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vue-swal": "^0.1.0",
     "vuetify": "^1.0.14"
   },
   "devDependencies": {
