@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="login">
-      <!-- <v-btn :to="{ path: '/login/facebook' }" class="facebook_btn">Facebook</v-btn> -->
       <a href="/login/facebook">Facebook</a>
+      <a href="/login/twitter">Twitter</a>
     </div>
     <v-form v-model="valid" ref="form" lazy-validation>
       <v-text-field
