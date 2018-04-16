@@ -50,6 +50,8 @@
 </template>
 
 <script>
+import './assets/stylesheets/main.css';
+
 import bus from './bus.js';
 import axios from 'axios';
 

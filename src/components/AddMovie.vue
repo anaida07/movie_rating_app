@@ -73,7 +73,7 @@ export default {
             release_year: this.release_year,
             genre: this.genre,
           },
-          url: '/api/movies',
+          url: '/movies',
           headers: {
             'Content-Type': 'application/json',
           },

@@ -1,25 +1,31 @@
 <template>
-  <v-form v-model="valid" ref="form" lazy-validation>
-    <v-text-field
-      label="Email"
-      v-model="email"
-      :rules="emailRules"
-      required
-    ></v-text-field>
-    <v-text-field
-      label="Password"
-      v-model="password"
-      :rules="passwordRules"
-      required
-    ></v-text-field>
-    <v-btn
-      @click="submit"
-      :disabled="!valid"
-    >
-      submit
-    </v-btn>
-    <v-btn @click="clear">clear</v-btn><br/>
-  </v-form>
+  <div>
+    <div class="login">
+      <!-- <v-btn :to="{ path: '/login/facebook' }" class="facebook_btn">Facebook</v-btn> -->
+      <a href="/login/facebook">Facebook</a>
+    </div>
+    <v-form v-model="valid" ref="form" lazy-validation>
+      <v-text-field
+        label="Email"
+        v-model="email"
+        :rules="emailRules"
+        required
+      ></v-text-field>
+      <v-text-field
+        label="Password"
+        v-model="password"
+        :rules="passwordRules"
+        required
+      ></v-text-field>
+      <v-btn
+        @click="submit"
+        :disabled="!valid"
+      >
+        submit
+      </v-btn>
+      <v-btn @click="clear">clear</v-btn><br/>
+    </v-form>
+  </div>
 </template>
 <script>
   import axios from 'axios';
@@ -47,7 +53,7 @@
               email: this.email,
               password: this.password
             },
-            url: '/api/users/login',
+            url: '/users/login',
             headers: {
               'Content-Type': 'application/json'
             }

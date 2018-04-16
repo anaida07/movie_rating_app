@@ -32,7 +32,7 @@ export default {
     async fetchMovies() {
       return axios({
         method: 'get',
-        url: '/api/movies',
+        url: '/movies',
       })
         .then((response) => {
           this.movies = response.data.movies;

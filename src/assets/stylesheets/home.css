@@ -26,3 +26,13 @@ a.side_bar_link {
 .card {
   height: 100% !important;
 }
+
+.login .btn__content {
+  height: auto !important;
+}
+
+.facebook_btn {
+  background-color: #3b5998 !important;
+  border-color: #3b5998 !important;
+  color: #fff !important;
+}

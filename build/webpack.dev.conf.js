@@ -38,9 +38,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       ? { warnings: false, errors: true }
       : false,
     publicPath: config.dev.assetsPublicPath,
-    proxy: {
-      "/api": "http://localhost:8081"
-    },
+    // proxy: {
+    //   "/api": "http://localhost:8081"
+    // },
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,

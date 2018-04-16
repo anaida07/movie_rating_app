@@ -24,7 +24,7 @@ module.exports.controller = (app) => {
     }
   ));
 
-  app.post('/api/users/login',
+  app.post('/users/login',
     passport.authenticate('local', { failureRedirect: '/users/login' }),
     function(req, res) {
       res.redirect('/');
@@ -41,7 +41,7 @@ module.exports.controller = (app) => {
   });
 
   // register a user
-  app.post('/api/users/register', (req, res) => {
+  app.post('/users/register', (req, res) => {
     const email = req.body.email;
     const fullname = req.body.fullname;
     const password = req.body.password;

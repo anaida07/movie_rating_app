@@ -2,7 +2,7 @@ var Movie = require("../models/Movie");
 
 module.exports.controller = (app) => {
   // fetch all movies
-  app.get("/api/movies", function(req, res) {
+  app.get("/movies", function(req, res) {
     Movie.find({}, 'name description release_year genre', function (error, movies) {
       if (error) { console.log(error); }
        res.send({
@@ -12,7 +12,7 @@ module.exports.controller = (app) => {
   })
 
   // add a new movie
-  app.post('/api/movies', (req, res) => {
+  app.post('/movies', (req, res) => {
     const movie = new Movie({
       name: req.body.name,
       description: req.body.description,

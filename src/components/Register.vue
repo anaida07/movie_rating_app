@@ -63,7 +63,7 @@
               email: this.email,
               password: this.password
             },
-            url: '/api/users/register',
+            url: '/users/register',
             headers: {
               'Content-Type': 'application/json'
             }
