@@ -73,21 +73,28 @@ export default {
       })
     },
     async fetchUser() {
-      axios.defaults.headers.common.Authorization = localStorage.getItem('jwtToken')
       return axios({
         method: 'get',
         url: '/api/current_user',
       })
         .then((response) => {
-          this.current_user = response.data.current_user
+          this.current_user = response.data.current_user;
         })
         .catch((error) => {
           console.log(error);
         });
     },
     logout () {
-      localStorage.removeItem('jwtToken');
-      this.$router.go('/login');
+      return axios({
+        method: 'get',
+        url: '/api/logout',
+      })
+        .then((response) => {
+          this.$router.go('/');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }
 };

@@ -4,13 +4,24 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const fs = require('fs');
+const session = require('express-session');
 const config = require('./config/Config');
+const passport = require('passport');
 
 const app = express();
 const router = express.Router();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
+
+app.use(session({
+  secret: config.SECRET,
+  resave: true,
+  saveUninitialized: true,
+  cookie: { httpOnly: false }
+}))
+app.use(passport.initialize());
+app.use(passport.session());
 
 //connect to mongodb
 mongoose.connect(mongoose.connect(config.DB));
@@ -27,6 +38,28 @@ fs.readdirSync("controllers").forEach(function (file) {
     route.controller(app)
   }
 })
+
+router.get('/api/current_user', isLoggedIn, function(req, res) {
+  if(req.user) {
+    res.send({ current_user: req.user })
+  } else {
+    res.status(403).send({ success: false, msg: 'Unauthorized.' });
+  }
+})
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated())
+    return next();
+
+  res.redirect('/');
+  console.log('error! auth failed')
+}
+
+router.get('/api/logout', function(req, res){
+  req.logout();
+  res.send();
+});
+
 
 router.get('/', function(req, res) {
   res.json({ message: 'API Initialized!'});
