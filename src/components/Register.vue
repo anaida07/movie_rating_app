@@ -63,7 +63,7 @@
               email: this.email,
               password: this.password
             },
-            url: 'http://localhost:8081/users/register',
+            url: '/api/users/register',
             headers: {
               'Content-Type': 'application/json'
             }

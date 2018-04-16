@@ -47,7 +47,7 @@
               email: this.email,
               password: this.password
             },
-            url: 'http://localhost:8081/users/login',
+            url: '/api/users/login',
             headers: {
               'Content-Type': 'application/json'
             }

@@ -76,7 +76,7 @@ export default {
       axios.defaults.headers.common.Authorization = localStorage.getItem('jwtToken')
       return axios({
         method: 'get',
-        url: 'http://localhost:8081/current_user',
+        url: '/api/current_user',
       })
         .then((response) => {
           this.current_user = response.data.current_user

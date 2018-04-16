@@ -11,7 +11,7 @@ require('./../config/passport')(passport);
 
 module.exports.controller = (app) => {
   // login a user
-  app.post("/users/login", function(req, res) {
+  app.post("/api/users/login", function(req, res) {
     if(req.body.email && req.body.password){
       const email = req.body.email;
       const password = req.body.password;
@@ -33,7 +33,7 @@ module.exports.controller = (app) => {
     }
   });
 
-  app.get('/current_user', passport.authenticate('jwt', { session: false}), function(req, res) {
+  app.get('/api/current_user', passport.authenticate('jwt', { session: false}), function(req, res) {
     const token = getToken(req.headers);
     if (token) {
       res.send({ current_user: req.user })
@@ -56,7 +56,7 @@ module.exports.controller = (app) => {
   };
 
   // register a user
-  app.post('/users/register', (req, res) => {
+  app.post('/api/users/register', (req, res) => {
     const email = req.body.email;
     const fullname = req.body.fullname;
     const password = req.body.password;
