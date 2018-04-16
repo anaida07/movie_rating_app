@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const fs = require('fs');
+const config = require('./config/Config');
 
 const app = express();
 const router = express.Router();
@@ -12,7 +13,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //connect to mongodb
-mongoose.connect('mongodb://localhost/movie_rating_app');
+mongoose.connect(mongoose.connect(config.DB));
 mongoose.connection.once('open', () => {
   console.log('Connection has been made');
 }).on('error', (error) => {
