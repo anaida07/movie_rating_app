@@ -29,7 +29,7 @@
       <v-toolbar-title>Home</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat v-bind:to="{ name: 'AddMovie' }">Add Movie</v-btn>
+        <v-btn flat v-bind:to="{ name: 'AddMovie' }" v-if="current_user && current_user.role === 'admin'">Add Movie</v-btn>
         <v-btn flat v-if="current_user">{{ current_user.email }}</v-btn>
         <v-btn flat v-bind:to="{ name: 'Register' }" v-if="!current_user">Register</v-btn>
         <v-btn flat v-bind:to="{ name: 'Login' }" v-if="!current_user">Login</v-btn>
