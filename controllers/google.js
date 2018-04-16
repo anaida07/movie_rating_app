@@ -4,9 +4,9 @@ const config = require('./../config/Config');
 
 module.exports.controller = (app) => {
   // google strategy
-  const Strategy = require('passport-google-oauth').OAuth2Strategy;
+  const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
-  passport.use(new Strategy({
+  passport.use(new GoogleStrategy({
     clientID: config.GOOGLE_APP_ID,
     clientSecret: config.GOOGLE_APP_SECRET,
     callbackURL: '/login/google/return',
