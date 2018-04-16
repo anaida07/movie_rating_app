@@ -4,6 +4,7 @@
       <a href="/login/facebook">Facebook</a>
       <a href="/login/twitter">Twitter</a>
       <a href="/login/google">Google</a>
+      <a href="/login/linkedin">Linkedin</a>
     </div>
     <v-form v-model="valid" ref="form" lazy-validation>
       <v-text-field
