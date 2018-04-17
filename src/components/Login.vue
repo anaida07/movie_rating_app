@@ -30,51 +30,51 @@
   </div>
 </template>
 <script>
-  import axios from 'axios';
-  import bus from "./../bus.js";
+import axios from 'axios';
+import bus from './../bus';
 
-  export default {
-    data: () => ({
-      valid: true,
-      email: '',
-      password: '',
-      emailRules: [
-        (v) => !!v || 'E-mail is required',
-        (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
-      ],
-      passwordRules: [
-        (v) => !!v || 'Password is required',
-      ]
-    }),
-    methods: {
-      async submit () {
-        if (this.$refs.form.validate()) {
-          return axios({
-            method: 'post',
-            data: {
-              email: this.email,
-              password: this.password
-            },
-            url: '/users/login',
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          })
-          .then((response) => {
-            localStorage.setItem('jwtToken', response.data.token)
-            this.$swal("Good job!", "You are ready to start!", "success");
-            bus.$emit("refreshUser");
+export default {
+  data: () => ({
+    valid: true,
+    email: '',
+    password: '',
+    emailRules: [
+      v => !!v || 'E-mail is required',
+      // v => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid',
+    ],
+    passwordRules: [
+      v => (!!v || 'Password is required'),
+    ],
+  }),
+  methods: {
+    async submit() {
+      if (this.$refs.form.validate()) {
+        return axios({
+          method: 'post',
+          data: {
+            email: this.email,
+            password: this.password,
+          },
+          url: '/users/login',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+          .then(() => {
+            this.$swal('Good job!', 'You are ready to start!', 'success');
+            bus.$emit('refreshUser');
             this.$router.push({ name: 'Home' });
           })
           .catch((error) => {
             const message = error.response.data.message;
-            this.$swal("Oh oo!", `${message}`, "error")
+            this.$swal('Oh oo!', `${message}`, 'error');
           });
-        }
-      },
-      clear () {
-        this.$refs.form.reset()
       }
-    }
-  }
+      return true;
+    },
+    clear() {
+      this.$refs.form.reset();
+    },
+  },
+};
 </script>

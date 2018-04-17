@@ -69,6 +69,8 @@ router.get('/', function(req, res) {
 
 const port = process.env.API_PORT || 8081;
 app.use('/', router);
-app.listen(port, function() {
+var server = app.listen(port, function() {
   console.log(`api running on port ${port}`);
 });
+
+module.exports = server
