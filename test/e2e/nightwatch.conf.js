@@ -8,10 +8,10 @@ module.exports = {
   custom_assertions_path: ['test/e2e/custom-assertions'],
 
   selenium: {
-    start_process: true,
+    start_process: false,
     server_path: require('selenium-server').path,
     host: '127.0.0.1',
-    port: 4444,
+    port: 5555,
     cli_args: {
       'webdriver.chrome.driver': require('chromedriver').path
     }
@@ -19,7 +19,7 @@ module.exports = {
 
   test_settings: {
     default: {
-      selenium_port: 4444,
+      selenium_port: 5555,
       selenium_host: 'localhost',
       silent: true,
       globals: {

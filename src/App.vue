@@ -11,7 +11,7 @@
             <v-list-tile-action>
               <v-icon>home</v-icon>
             </v-list-tile-action>
-            <v-list-tile-content>Home</v-list-tile-content>
+            <v-list-tile-content id="home">Home</v-list-tile-content>
           </v-list-tile>
         </router-link>
         <router-link v-bind:to="{ name: 'Contact' }" class="side_bar_link">
@@ -19,7 +19,7 @@
             <v-list-tile-action>
               <v-icon>contact_mail</v-icon>
             </v-list-tile-action>
-            <v-list-tile-content>Contact</v-list-tile-content>
+            <v-list-tile-content id="contact">Contact</v-list-tile-content>
           </v-list-tile>
         </router-link>
       </v-list>
