@@ -4,7 +4,7 @@ const Rating = require("../models/Rating");
 module.exports.controller = (app) => {
   // fetch all movies
   app.get("/movies", function(req, res) {
-    Movie.find({}, 'name description release_year genre', function (error, movies) {
+    Movie.find({}, 'name description release_year genre', { sort: { '_id': -1 } }, function (error, movies) {
       if (error) { console.log(error); }
        res.send({
         movies: movies
