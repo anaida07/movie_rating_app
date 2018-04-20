@@ -11,21 +11,24 @@
         label="Email"
         v-model="email"
         :rules="emailRules"
+        id="email"
         required
       ></v-text-field>
       <v-text-field
         label="Password"
         v-model="password"
         :rules="passwordRules"
+        id="password"
         required
       ></v-text-field>
       <v-btn
         @click="submit"
         :disabled="!valid"
+        id="login"
       >
         submit
       </v-btn>
-      <v-btn @click="clear">clear</v-btn><br/>
+      <v-btn @click="clear" id="clear_input">clear</v-btn><br/>
     </v-form>
   </div>
 </template>

@@ -4,12 +4,14 @@
       label="Movie Name"
       v-model="name"
       :rules="nameRules"
+      id="name"
       required
     ></v-text-field>
     <v-text-field
       name="input-7-1"
       label="Movie Description"
       v-model="description"
+      id="description"
       multi-line
     ></v-text-field>
     <v-select
@@ -18,16 +20,19 @@
       required
       :rules="releaseRules"
       :items="years"
+      id="release_year"
     ></v-select>
     <v-text-field
       label="Movie Genre"
       v-model="genre"
+      id="genre"
       required
       :rules="genreRules"
     ></v-text-field>
     <v-btn
       @click="submit"
       :disabled="!valid"
+      id="add_movie_btn"
     >
       submit
     </v-btn>
