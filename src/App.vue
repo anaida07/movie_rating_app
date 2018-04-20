@@ -25,18 +25,18 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon id="drawer" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Home</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat v-bind:to="{ name: 'AddMovie' }"
+        <v-btn id="add_movie_link" flat v-bind:to="{ name: 'AddMovie' }"
           v-if="current_user && current_user.role === 'admin'">
           Add Movie
         </v-btn>
-        <v-btn flat v-if="current_user">{{ current_user.email }}</v-btn>
-        <v-btn flat v-bind:to="{ name: 'Register' }" v-if="!current_user">Register</v-btn>
-        <v-btn flat v-bind:to="{ name: 'Login' }" v-if="!current_user">Login</v-btn>
-        <v-btn flat v-if="current_user" @click="logout">Logout</v-btn>
+        <v-btn id="user_email" flat v-if="current_user">{{ current_user.email }}</v-btn>
+        <v-btn flat v-bind:to="{ name: 'Register' }" v-if="!current_user" id="register_btn">Register</v-btn>
+        <v-btn flat v-bind:to="{ name: 'Login' }" v-if="!current_user" id="login_btn">Login</v-btn>
+        <v-btn id="logout_btn" flat v-if="current_user" @click="logout">Logout</v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-content>
@@ -94,7 +94,8 @@ export default {
         url: '/api/logout',
       })
         .then(() => {
-          this.$router.go('/');
+          bus.$emit('refreshUser');
+          this.$router.push({ name: 'Home' });
         })
         .catch(() => {
         });
