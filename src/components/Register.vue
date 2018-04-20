@@ -37,7 +37,7 @@ import axios from 'axios';
 
 export default {
   data: () => ({
-    e1: false,
+    e1: true,
     valid: true,
     fullname: '',
     email: '',
