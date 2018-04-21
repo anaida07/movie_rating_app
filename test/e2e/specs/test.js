@@ -9,7 +9,8 @@ module.exports = {
     const devServer = browser.globals.devServerURL;
 
     browser
-      .url('http://localhost:8081')
+      // .url('http://localhost:8081')
+      .url(devServer)
       .waitForElementVisible('#inspire', 9000)
       .assert.elementPresent('.list')
       .assert.elementPresent('.list .side_bar_link')
