@@ -34,7 +34,9 @@
           Add Movie
         </v-btn>
         <v-btn id="user_email" flat v-if="current_user">{{ current_user.email }}</v-btn>
-        <v-btn flat v-bind:to="{ name: 'Register' }" v-if="!current_user" id="register_btn">Register</v-btn>
+        <v-btn flat v-bind:to="{ name: 'Register' }" v-if="!current_user" id="register_btn">
+          Register
+        </v-btn>
         <v-btn flat v-bind:to="{ name: 'Login' }" v-if="!current_user" id="login_btn">Login</v-btn>
         <v-btn id="logout_btn" flat v-if="current_user" @click="logout">Logout</v-btn>
       </v-toolbar-items>

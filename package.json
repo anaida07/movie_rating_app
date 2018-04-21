@@ -25,6 +25,7 @@
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "jsonwebtoken": "^8.2.1",
+    "karma-chrome-launcher": "^2.2.0",
     "mongoose": "^5.0.14",
     "morgan": "^1.9.0",
     "node-sass": "^4.8.3",
