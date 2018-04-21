@@ -3,12 +3,10 @@ node_js:
   - "8.5.0"
 before_script:
   - npm install
-  - "sudo chown root /opt/google/chrome/chrome-sandbox"
-  - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3
 script: npm run test
 sudo: required
 addons:
   chrome: stable
-  sauce_connect:
-    username: "anaida"
-    access_key: "cf988994-ec4f-47a4-9fa5-a421e68b108c"
