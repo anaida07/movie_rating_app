@@ -9,3 +9,6 @@ script: npm run test
 sudo: required
 addons:
   chrome: stable
+  sauce_connect:
+    username: "anaida"
+    access_key: "cf988994-ec4f-47a4-9fa5-a421e68b108c"
