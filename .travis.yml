@@ -6,4 +6,6 @@ before_script:
 script: npm run test
 sudo: required
 addons:
-  chrome: stable
+  chrome: beta
+before_install:
+  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
