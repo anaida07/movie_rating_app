@@ -3,9 +3,9 @@ node_js:
   - "8.5.0"
 before_script:
   - npm install
+  - "sudo chown root /opt/google/chrome/chrome-sandbox"
+  - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
 script: npm run test
 sudo: required
 addons:
-  chrome: beta
-before_install:
-  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
+  chrome: stable
