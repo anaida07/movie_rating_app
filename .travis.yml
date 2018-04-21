@@ -1,14 +1,13 @@
 language: node_js
 node_js:
   - "8.5.0"
-before_install:
-  - nodemon server.js
 before_script:
   - npm install
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3
 script:
+  - nodemon server.js &
   - npm run test
 sudo: required
 addons:
