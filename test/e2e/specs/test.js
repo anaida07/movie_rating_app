@@ -7,6 +7,7 @@ module.exports = {
     // default: http://localhost:8080
     // see nightwatch.conf.js
     const devServer = browser.globals.devServerURL;
+    console.log(devServer)
 
     browser
       // .url('http://localhost:8081')
