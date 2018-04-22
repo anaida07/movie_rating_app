@@ -11,7 +11,7 @@ npm install
 # build for production with minification
 npm run build
 
-# serve with hot reload at localhost:8081
+# start node server at localhost:8081
 nodemon server.js
 
 # run unit tests
