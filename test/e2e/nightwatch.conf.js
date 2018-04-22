@@ -8,7 +8,7 @@ module.exports = {
   custom_assertions_path: ['test/e2e/custom-assertions'],
 
   selenium: {
-    start_process: true,
+    start_process: false,
     server_path: require('selenium-server').path,
     host: '127.0.0.1',
     port: 5555,

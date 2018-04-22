@@ -1,13 +1,12 @@
 module.exports = {
-  DB: 'mongodb://movieratingappuser:movieratingappuser12345678@ds251849.mlab.com:51849/movie_rating_app',
-  // DB: 'mongodb://localhost/movie_rating_app',
-  SECRET: 'movieratingappsecretkey',
-  FACEBOOK_APP_ID: '161708997950642',
-  FACEBOOK_APP_SECRET: '256ed3ac3bafacfc00ed7206a7cb93c3',
-  TWITTER_APP_ID: 'R6D4aFRwwSNmUxA47wwSUbusA',
-  TWITTER_APP_SECRET: 'mQJ1p08ljt7T7EUjgwxk3WCzTUzv70rfOdKSaDELqXnZG77RCQ',
-  GOOGLE_APP_ID: '635583779301-30hlunb04ehcleacm71hr7d12gqcggnt.apps.googleusercontent.com',
-  GOOGLE_APP_SECRET: '5jXr712WI9z8CjZ9tP6DLH9K',
-  LINKEDIN_APP_ID: '81vpeaes09tuvi',
-  LINKEDIN_APP_SECRET: 'tvmctPGaqHvtziTg'
+  DB: 'mongodb://localhost/movie_rating_app',
+  SECRET: '<secret>',
+  FACEBOOK_APP_ID: '<FACEBOOK_APP_ID>',
+  FACEBOOK_APP_SECRET: '<FACEBOOK_APP_SECRET>',
+  TWITTER_APP_ID: '<TWITTER_APP_ID>',
+  TWITTER_APP_SECRET: '<TWITTER_APP_SECRET>',
+  GOOGLE_APP_ID: '<GOOGLE_APP_ID>',
+  GOOGLE_APP_SECRET: '<GOOGLE_APP_SECRET>',
+  LINKEDIN_APP_ID: '<LINKEDIN_APP_ID>',
+  LINKEDIN_APP_SECRET: '<LINKEDIN_APP_SECRET>'
 }
