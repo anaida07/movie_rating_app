@@ -8,9 +8,11 @@ const session = require('express-session');
 const config = require('./config/Config');
 const passport = require('passport');
 const serveStatic = require('serve-static');
-
+const history = require('connect-history-api-fallback');
 const app = express();
 const router = express.Router();
+
+app.use(history());
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(serveStatic(__dirname + "/dist"));
