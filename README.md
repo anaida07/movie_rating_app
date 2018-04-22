@@ -22,4 +22,7 @@ npm run e2e
 
 # run all tests
 npm test
+
+# To make the oauth strategies workable, add the keys in
+config/Config.js
 ```
