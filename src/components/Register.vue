@@ -20,7 +20,7 @@
       required
       min="6"
       :append-icon-cb="() => (e1 = !e1)"
-      :append-icon="e1 ? 'visibility' : 'visibility_off'"
+      :append-icon="e1 ? 'visibility_off' : 'visibility'"
       :type="e1 ? 'password' : 'text'"
     ></v-text-field>
     <v-btn

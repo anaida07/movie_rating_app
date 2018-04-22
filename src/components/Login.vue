@@ -15,12 +15,16 @@
         required
       ></v-text-field>
       <v-text-field
-        label="Password"
-        v-model="password"
-        :rules="passwordRules"
-        id="password"
-        required
-      ></v-text-field>
+      label="Password"
+      hint="At least 6 characters"
+      v-model="password"
+      :rules="passwordRules"
+      id="password"
+      required
+      :append-icon-cb="() => (e1 = !e1)"
+      :append-icon="e1 ? 'visibility_off' : 'visibility'"
+      :type="e1 ? 'password' : 'text'"
+    ></v-text-field>
       <v-btn
         @click="submit"
         :disabled="!valid"
@@ -38,6 +42,7 @@ import bus from './../bus';
 
 export default {
   data: () => ({
+    e1: true,
     valid: true,
     email: '',
     password: '',
