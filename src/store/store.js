@@ -4,9 +4,9 @@ import axios from 'axios';
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
+export default new Vuex.Store({
   state: {
-    movies: []
+    movies: [],
   },
   getters: {
     fetchMovies: state => state.movies,
@@ -17,44 +17,44 @@ export const store = new Vuex.Store({
     },
     MOVIES: (state, payload) => {
       state.movies = payload;
-    }
+    },
   },
   actions: {
     addMovie: (context, payload) => {
-      return axios({
-          method: 'post',
-          data: payload,
-          url: '/movies',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+      axios({
+        method: 'post',
+        data: payload,
+        url: '/movies',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => {
+          context.commit('ADD_MOVIE', response.data);
+          this.$swal(
+            'Great!',
+            'Movie added successfully!',
+            'success',
+          );
         })
-          .then((response) => {
-            context.commit("ADD_MOVIE", response.data)
-            this.$swal(
-              'Great!',
-              'Movie added successfully!',
-              'success',
-            );
-          })
-          .catch(() => {
-            this.$swal(
-              'Oh oo!',
-              'Could not add the movie!',
-              'error',
-            );
-          });
+        .catch(() => {
+          this.$swal(
+            'Oh oo!',
+            'Could not add the movie!',
+            'error',
+          );
+        });
     },
-    fetchMovies: (context, payload) => {
+    fetchMovies: (context) => {
       axios({
         method: 'get',
         url: '/movies',
       })
         .then((response) => {
-          context.commit("MOVIES", response.data.movies);
+          context.commit('MOVIES', response.data.movies);
         })
         .catch(() => {
         });
-    }
-  }
-})
+    },
+  },
+});

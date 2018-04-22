@@ -74,8 +74,8 @@ export default {
           description: this.description,
           release_year: this.release_year,
           genre: this.genre,
-        }
-        this.$store.dispatch("addMovie", movie);
+        };
+        this.$store.dispatch('addMovie', movie);
         this.$refs.form.reset();
         this.$router.push({ name: 'Home' });
       }

@@ -25,10 +25,10 @@ export default {
   computed: {
     movies() {
       return this.$store.getters.fetchMovies;
-    }
+    },
   },
   mounted() {
-    this.$store.dispatch("fetchMovies");
+    this.$store.dispatch('fetchMovies');
   },
 };
 </script>
