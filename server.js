@@ -26,12 +26,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //connect to mongodb
-mongoose.connect(mongoose.connect(config.DB));
-mongoose.connection.once('open', () => {
+mongoose.connect(config.DB, function() {
   console.log('Connection has been made');
-}).on('error', (error) => {
-  console.log('connection error: '+ error);
 })
+.catch(err => {
+  console.error('App starting error:', err.stack);
+  process.exit(1);
+});
+
 
 // Include controllers
 fs.readdirSync("controllers").forEach(function (file) {
