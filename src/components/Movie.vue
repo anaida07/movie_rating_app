@@ -4,8 +4,15 @@
       <v-card>
         <v-card-title primary-title>
           <div>
-            <div class="headline">{{ movie.name }}</div>
-            <span class="grey--text">{{ movie.release_year }} ‧ {{ movie.genre }}</span>
+            <div class="headline">{{ movie.name }}
+              <v-icon v-if="current_user && current_user.role === 'admin'">
+                edit
+              </v-icon>
+            </div>
+            <span class="grey--text">{{ movie.release_year }} ‧ {{ movie.genre }}</span><br />
+            <span class="grey--text">
+              Rating: 3
+            </span>
           </div>
         </v-card-title>
         <h6 class="card-title" id="rate_movie" v-if="current_user" @click="rate">

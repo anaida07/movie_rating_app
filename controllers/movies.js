@@ -16,6 +16,10 @@ module.exports.controller = (app) => {
   app.get("/api/movies/:id", function(req, res) {
     Movie.findById(req.params.id, 'name description release_year genre', function (error, movie) {
       if (error) { console.error(error); }
+      Rating.find({ movie_id: req.params.id }, 'rate', function (error, ratings) {
+        console.log('ratings');
+        console.log(ratings);
+      })
       res.send(movie)
     })
   })
@@ -50,6 +54,23 @@ module.exports.controller = (app) => {
     movie.save(function (error, movie) {
       if (error) { console.log(error); }
       res.send(movie)
+    })
+  })
+
+  // update a movie
+  app.put("/api/movies/update/:id", function(req, res) {
+    var id = req.params.id
+    Movie.findById(id, function (error, movie) {
+      if (error) { console.error(error); }
+      movie.name = req.body.name,
+      movie.description = req.body.description,
+      movie.release_year = req.body.release_year,
+      movie.genre = req.body.genre
+
+      movie.save(function (error, movie) {
+        if (error) { console.log(error); }
+        res.send(movie)
+      })
     })
   })
 }
