@@ -16,7 +16,6 @@
       ></v-text-field>
       <v-text-field
       label="Password"
-      hint="At least 6 characters"
       v-model="password"
       :rules="passwordRules"
       id="password"

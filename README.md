@@ -1,6 +1,6 @@
-# movie_rating_app
+# Movie Rating App
 
-> A Vue.js project
+> A Vue.js and Node.js project
 
 ## Build Setup
 
