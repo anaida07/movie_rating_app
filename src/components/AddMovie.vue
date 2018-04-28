@@ -76,6 +76,11 @@ export default {
           genre: this.genre,
         };
         this.$store.dispatch('addMovie', movie);
+        this.$swal(
+          'Great!',
+          'Movie added successfully!',
+          'success',
+        );
         this.$refs.form.reset();
         this.$router.push({ name: 'Home' });
       }

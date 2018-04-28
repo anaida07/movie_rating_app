@@ -31,11 +31,6 @@ export const store = new Vuex.Store({
       })
         .then((response) => {
           context.commit('ADD_MOVIE', response.data);
-          this.$swal(
-            'Great!',
-            'Movie added successfully!',
-            'success',
-          );
         })
         .catch(() => {
           this.$swal(
