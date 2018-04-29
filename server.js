@@ -12,7 +12,6 @@ const history = require('connect-history-api-fallback');
 const app = express();
 const router = express.Router();
 
-app.use(history());
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(serveStatic(__dirname + "/dist"));
@@ -44,6 +43,8 @@ fs.readdirSync("controllers").forEach(function (file) {
     route.controller(app)
   }
 })
+
+app.use(history());
 
 router.get('/api/current_user', isLoggedIn, function(req, res) {
   if(req.user) {
