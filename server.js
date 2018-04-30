@@ -12,6 +12,10 @@ const history = require('connect-history-api-fallback');
 const app = express();
 const router = express.Router();
 
+app.use(morgan('combined'));
+app.use(bodyParser.json());
+app.use(cors());
+
 app.use(session({
   secret: config.SECRET,
   resave: true,
@@ -21,20 +25,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Include controllers
-fs.readdirSync("controllers").forEach(function (file) {
-  if(file.substr(-3) == ".js") {
-    const route = require("./controllers/" + file)
-    route.controller(app)
-  }
-})
-
-app.use(history());
-app.use(morgan('combined'));
-app.use(bodyParser.json());
-app.use(serveStatic(__dirname + "/dist"));
-app.use(cors());
-
 //connect to mongodb
 mongoose.connect(config.DB, function() {
   console.log('Connection has been made');
@@ -43,6 +33,16 @@ mongoose.connect(config.DB, function() {
   console.error('App starting error:', err.stack);
   process.exit(1);
 });
+
+// Include controllers
+fs.readdirSync("controllers").forEach(function (file) {
+  if(file.substr(-3) == ".js") {
+    const route = require("./controllers/" + file)
+    route.controller(app)
+  }
+})
+app.use(history());
+app.use(serveStatic(__dirname + "/dist"));
 
 router.get('/api/current_user', isLoggedIn, function(req, res) {
   if(req.user) {
