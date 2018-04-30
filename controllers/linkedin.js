@@ -10,7 +10,7 @@ module.exports.controller = (app) => {
     consumerKey: config.LINKEDIN_APP_ID,
     consumerSecret: config.LINKEDIN_APP_SECRET,
     callbackURL: '/login/linkedin/return',
-    profileFields: ['id', 'displayName', 'email']
+    profileFields: ['id', 'first-name', 'last-name', 'email-address']
   },
   function(accessToken, refreshToken, profile, cb) {
     const email = profile['emails'][0]['value'];
@@ -36,7 +36,7 @@ module.exports.controller = (app) => {
   }));
 
   app.get('/login/linkedin',
-    passport.authenticate('linkedin', { scope: ['email'] }));
+    passport.authenticate('linkedin'));
 
   app.get('/login/linkedin/return',
     passport.authenticate('linkedin', { failureRedirect: '/login' }),
