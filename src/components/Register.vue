@@ -75,7 +75,7 @@ export default {
               'You have been successfully registered!',
               'success',
             );
-            this.$router.push({ name: 'Home' });
+            this.$router.push({ name: 'Login' });
           })
           .catch((error) => {
             const message = error.response.data.message;
